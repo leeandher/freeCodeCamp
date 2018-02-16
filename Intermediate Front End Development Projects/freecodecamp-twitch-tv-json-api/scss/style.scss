@@ -1,0 +1,199 @@
+//Twitch.tv standard colors
+$darker-purple: #160C25;
+$dark-purple: #3B2064;
+$mid-purple: #4B367C;
+$purple: #6441A4;
+$light-purple: #B19DD8;
+$dark: #1E1E1E;
+$light: #FEFEFE;
+
+$max-w: 992px;
+$min-w: 320px;
+
+@import url("https://fonts.googleapis.com/css?family=Iceland|Russo+One");
+
+body {
+  background: $dark;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Iceland";
+  color: $light;
+  text-align: center;
+}
+
+.container-fluid {
+  max-width: $max-w;
+  min-width: $min-w;
+  background: transparent;
+}
+.title {
+  font-size: 64px;
+  white-space: nowrap;
+  margin: 0 auto;
+  .fa-circle {
+    font-size: 43px;
+    display: relative;
+    color: red;
+    -webkit-animation: blink 1s infinite; 
+    -moz-animation: blink 1s infinite;
+    -o-animation: blink 1s infinite;
+    animation: blink 1s infinite;
+  }
+  span {
+    font-family: 'Russo One';
+    font-size: 45px;
+    font-weight: bold;
+    color: red;
+    -webkit-animation: blink 1s infinite; 
+    -moz-animation: blink 1s infinite;
+    -o-animation: blink 1s infinite;
+    animation: blink 1s infinite;
+  }
+}
+@keyframes blink {
+  0%{color: red;}
+  50%{color: maroon;}
+  100%{color: red;}
+}
+
+.subtitle {
+  font-size: 32px;
+}
+.wrapper {
+  border: 2px solid $light;
+  background: transparent;
+  color: $light;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  top: 5% !important;
+}
+.utility {
+  .holder {
+    border: 2px solid $light;
+    padding: 10px;
+    top: 5% !important;
+  }
+  .btn {
+    margin: 10px auto;
+    border-width: 2px;
+    font-weight: bold;
+    font-size: 16px;
+    width: 100%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #filter-search {
+    text-align: center;
+    border: 2px solid $purple;
+    font-weight: bold;
+    background: transparent;
+
+    margin: 10px auto;
+    font-size: 16px;
+    width: 100%;
+    
+    color: white;
+    padding-left: 15px;
+    border-radius: 0.25rem;
+    &::placeholder {
+      color: $purple;
+      font-size: 1 rem;
+    }
+    &:hover,
+    &:focus {
+      background-color: $purple;
+      &::placeholder {
+        color: white;
+      }
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(100, 65, 164, 0.5);
+    }
+  }
+}
+
+.data {
+  .wrapper {
+    min-height: 300px;
+  }
+  .card {
+    color: $purple;
+    text-decoration: none;
+    margin: 10px;
+    transition: all 0.3s;
+    box-shadow: none;
+    &:focus {
+      outline: none;
+    }
+    .card-header {
+      font-weight: bold;
+      padding-left: 10px;
+      .logo {
+        max-width: 40px;
+        max-height: 40px;
+        border-radius: 100%;
+        padding: 2px;
+        border: 1px solid $dark-purple;
+        float: left;
+      }
+      .head {
+        padding-left: 45px;
+        padding-top: 2px;
+        span {
+          font-weight: normal;
+          font-style: italic;
+          font-size: 20px;
+        }
+      }
+    }
+    &:hover {
+      transform: translateX(5px);
+      cursor: pointer;
+    }
+  }
+}
+
+.footer {
+  display: block;
+  padding: 10px;
+  color: $light;
+  font-size: 20px;
+  .fab {
+    margin: 0px -2px 0px 4px;
+    font-size: 14px;
+  }
+  &:hover {
+    cursor: pointer;
+    color: $light-purple;
+    text-decoration: none;
+  }
+}
+
+.loading-icon {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+.load-anim {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border: 3px solid $light;  
+  border-top: 3px solid $purple;
+  border-radius: 100%;
+  animation: spin 2s infinite ease;
+}
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
