@@ -1,30 +1,9 @@
-
-function permAloneTESTING(str) {
-  function perm(num) {
-    if (num === 0) { return 1; }
-    return num * perm(num-1);
-  }
-  return perm(str.length-1)*(str.length-2);
-//   arr = str.toUpperCase().split('');
-//   numPairs = arr.length - arr.filter((x,i) => i===arr.indexOf(x)).length;
-//   switch (numPairs) {
-//     case 0 :
-//       return perm(str.length);
-//     case 2 :
-//       return perm(str.length)-perm(str.length+1-3)*3 
-//       // TotalIndices! - IndexSectionsofLength2!*Length2
-//     default :
-//       return perm(str.length)-numPairs*perm(str.length-1)*2 + perm(str.length-2)*4;
-//   }
-//   //return perm(str.length)-perm(str.length-2)*(str.length-1)*2;
+function perm(num) {
+  if (num === 0) {return 1;}
+  return num * perm(num-1);
 }
 
-
 function permAlone(str) {
-  function perm(num) {
-    if (num === 0) { return 1; }
-    return num * perm(num-1);
-  }
   str = str.toUpperCase().split('').sort().join('');
   var notAlone = [];
   for (i=0; i<str.length; i++) {
@@ -33,25 +12,41 @@ function permAlone(str) {
       notAlone.push(str[i]);
     }
   }
-  var repeats = {};
-  notAlone.forEach(function(x) {repeats[x] = (repeats[x] || 0)+1;});
-  notAlone = notAlone.filter((x,i,arr) => i===arr.indexOf(x));
-  console.log(notAlone);
-  console.log(repeats[notAlone[1]]);
-  
+  if (notAlone.length) {
+    var repeats = {};
+    notAlone.forEach(function(x) {repeats[x] = (repeats[x] || 0)+1;});
+    notAlone = notAlone.filter((x,i,arr) => i===arr.indexOf(x));
+    if (str.length < repeats[notAlone[0]]*2-1) {
+      return 0;
+    }
+    return perm(str.length+1-repeats[notAlone[0]]) * 
+      perm(str.length-repeats[notAlone[0]]) / 
+      perm(str.length-1-repeats[notAlone[0]]);
+  }
+  return 1;
 }
-//960
-permAlone('abdbdghdddsfi');
+permAlone('a');
 
-
-  //console.log( perm(str.length)-perm(str.length-2)*2*(str.length-1) ); 1 repeat of 2
-  /*console.log(perm(5)-perm(3)*2*4 + ' - 1 repeat of 2 letters')
-  console.log(perm(5)-perm(3)*2*3*3) //1 repeat of 3 for 5 letters
-  console.log(perm(5)-perm(3)*2*3*3*4)
-  console.log();
-  console.log(perm(6)-perm(4)*2*5 + ' - 1 repeat of 2 letters')
-  console.log(perm(6)-perm(4)*2*3*4)
-  console.log();*/
+/*var len = 5;
+  //console.log(perm(len-1)*(len-2));
+  console.log(perm(4)*3)
+  console.log(perm(3)*2*1)
+  console.log()
+  
+  var len = 6;
+  //console.log(perm(len-1)*(len-2));
+  console.log(perm(5)*4)
+  console.log(perm(4)*3*2)
+  console.log(perm(3)*2*1*0)
+  console.log()
+  
+  var len = 7;
+  //console.log(perm(len-1)*(len-2));
+  console.log(perm(6)*5)
+  console.log(perm(5)*4*3)
+  console.log(perm(4)*3*2*1)
+  console.log()
+  */
 
 //aabb -> 8
 //aabbc -> 48
@@ -71,5 +66,3 @@ permAlone('abdbdghdddsfi');
 //aaaabcd -> 144
 //aaaabcde -> 2880
 //aaaabcdef -> 43200
-
-permAlone('aaacd');
