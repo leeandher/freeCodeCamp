@@ -1,10 +1,14 @@
+//Function which takes the factorial of a number
 function perm(num) {
   if (num === 0) {return 1;}
   return num * perm(num-1);
 }
 
+//Function counting permutations without adjacent letters
 function permAlone(str) {
+  //Sort the string alphabetically
   str = str.toUpperCase().split('').sort().join('');
+  //Create an array and fill it with duplicates
   var notAlone = [];
   for (i=0; i<str.length; i++) {
     var re = new RegExp(str[i]+ '{2,}', 'g');
@@ -12,57 +16,38 @@ function permAlone(str) {
       notAlone.push(str[i]);
     }
   }
-  if (notAlone.length) {
-    var repeats = {};
-    notAlone.forEach(function(x) {repeats[x] = (repeats[x] || 0)+1;});
-    notAlone = notAlone.filter((x,i,arr) => i===arr.indexOf(x));
-    if (str.length < repeats[notAlone[0]]*2-1) {
-      return 0;
-    }
-    return perm(str.length+1-repeats[notAlone[0]]) * 
-      perm(str.length-repeats[notAlone[0]]) / 
-      perm(str.length-1-repeats[notAlone[0]]);
+  //Create a function which identifies clusters of letters
+  function permeate(len, reps) {
+    return perm(len+1-reps)*perm(len-reps)/perm(len-1-reps);
   }
-  return 1;
+  if (notAlone.length) {
+    //If duplicates exist, create an object to store letters and number of occurrences
+    var repeats = {};
+    notAlone.forEach(function(x) {repeats[x] = (repeats[x] || 0)+1;}); //Count per letter
+    notAlone = notAlone.filter((x,i,arr) => i===arr.indexOf(x)); //Remove duplicates
+    
+    //Loops through duplicates and calculates permutations
+    var numPerms;
+    for (i=0; i<notAlone.length; i++) {
+      if (str.length < repeats[notAlone[i]]*2-1) {
+        //Returns 0 permuations if too many duplicates
+        return 0;
+      } else if (str.length == repeats[notAlone[i]]*2-1) {
+        //Returns calculation of single duplicate letter if it exceeds other letters
+        return permeate(str.length, repeats[notAlone[i]]);
+      } else {
+        //Calculates numPerms and lowers it based on other duplicate letter quantities
+        if (i === 0) {
+          numPerms = permeate(str.length,repeats[notAlone[i]]);
+        } else {
+          numPerms -= 2*permeate(str.length-1, repeats[notAlone[i]]);
+        }
+      }
+    }
+    //Return the number of permutations of the repeated-lettered word
+    return numPerms;
+  }
+  //Return the number of permutations of the uniquely-lettered word
+  return perm(str.length);
 }
-permAlone('a');
-
-/*var len = 5;
-  //console.log(perm(len-1)*(len-2));
-  console.log(perm(4)*3)
-  console.log(perm(3)*2*1)
-  console.log()
-  
-  var len = 6;
-  //console.log(perm(len-1)*(len-2));
-  console.log(perm(5)*4)
-  console.log(perm(4)*3*2)
-  console.log(perm(3)*2*1*0)
-  console.log()
-  
-  var len = 7;
-  //console.log(perm(len-1)*(len-2));
-  console.log(perm(6)*5)
-  console.log(perm(5)*4*3)
-  console.log(perm(4)*3*2*1)
-  console.log()
-  */
-
-//aabb -> 8
-//aabbc -> 48
-//aabbcd -> 336
-
-//aa -> 0
-//aac -> 2
-//aacd -> 12
-//aacde -> 72
-//aacdef -> 480
-
-//aaac -> 0
-//aaacd -> 12
-//aaacde -> 144
-//aaacdef -> 1440
-
-//aaaabcd -> 144
-//aaaabcde -> 2880
-//aaaabcdef -> 43200
+permAlone('aabbb');
