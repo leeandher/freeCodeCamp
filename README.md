@@ -15,7 +15,7 @@ Please keep in mind that they do get better overtime as I learn more and try new
  A set of basic algorithms for manipulating strings, numbers and arrays, similar to basic technical interview prep.<br/>
  Concepts: **Pure JS**
  - **Random Quote Machine** - _Feb 04, 2018_<br/>
- A webpage styled as a mobile phone with the Tinder app open that cycles through different quotes, names, locations, and background images.<br/>
+ A webpage styled as a mobile phone with the Tinder app open that cycles through different lame pick-up lines, names, locations, and background images.<br/>
  Concepts: **HTML5**, **CSS3 w/ Bootstrap & SCSS**, **JS w/ JQuery** 
  - **Wikipedia Viewer** - _Feb 07, 2018_<br/>
  A front-end face that accesses the Wikipedia API to search for results and display in a clean format. Accepts and input and displays the top 20 results.<br/>
