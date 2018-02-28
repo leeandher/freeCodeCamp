@@ -1,0 +1,63 @@
+.container-fluid
+  .row
+    /Page title
+    .title
+      .fas.fa-circle 
+        %span LIVE
+      on twitch
+  .row
+    /Menu button area
+    .utility.col-md-3
+      .wrapper.sticky-top
+        %h2 MENU
+        /Filter button set
+        %h5 FILTERS
+        .row#filters
+          .col-md-12.col-sm-6
+            %button.btn.btn-outline-info.active#filter-all ALL
+            %button.btn.btn-outline-success#filter-online ONLINE
+          .col-md-12.col-sm-6
+            %button.btn.btn-outline-danger#filter-offline OFFLINE
+            %input.btn#filter-search{:type => "search",
+                                     :placeholder => "SEARCH",
+                                     :autocomplete => "off"}
+        /Sort button set
+        %h5 SORT
+        .row#sorts
+          .col-md-12.col-sm-4
+            %button.btn.btn-outline-warning.active#sort-az A - Z
+          .col-md-12.col-sm-4
+            %button.btn.btn-outline-warning#sort-live LIVE
+          .col-md-12.col-sm-4
+            %button.btn.btn-outline-warning#sort-pop POPULARITY
+        /Add button set    
+        %h5 ADD
+        .row#add
+          %form.col-md-12
+            %input.btn#add-streamer{:type => "text", 
+                                    :placeholder => "ADD STREAMER",
+                                    :autocomplete => "off"}
+    /Streamer content area     
+    .data.col-md-9
+      .wrapper
+        /Loading icon
+        #hold-loading
+          .loading-icon
+            .load-anim
+        /Loop to create streamerDivs
+        - maxStreamers = 50
+        - (0..maxStreamers).each do |i|
+          %a.card.d-none{:href => "#", :target => "_blank", :id => "result#{i}"}
+            %img.card-img-top
+            %h3.card-header 
+              %img.logo
+              .head
+            .card-body
+              %h5.card-title
+              %h6.card-subtitle
+              %p.card-text
+  /Footer
+  %a.footer{:href => "https://dev.twitch.tv/", :target => "_blank"} 
+    POWERED BY
+    .fab.fa-twitch.fa-sm
+    API

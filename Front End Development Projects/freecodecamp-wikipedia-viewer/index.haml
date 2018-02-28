@@ -1,0 +1,50 @@
+.modal.fade#selectedModal
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        %a.modal-title{:target => "_blank"}
+        %button.close{:type => "button", :'data-dismiss'=>"modal"} ×
+      .modal-body 
+        %p.justify-content
+      .modal-footer
+        %a.btn.fab.fa-lg.fa-facebook-f{:target => "_blank"}
+        %a.btn.fab.fa-lg.fa-twitter{:target => "_blank"}
+        %a.btn.fab.fa-lg.fa-google-plus-g{:target => "_blank"}
+.header
+  %label
+    %span sans-serif
+    %input.d-none{:type => "checkbox"}
+    .switch.float-left
+.container-fluid
+  .head.location
+    %form{:action => ""}
+      .title 
+        .center-text WikiView
+      %input.center#searchBar{:type => "text",
+                              :placeholder => "Search",
+                              :autocomplete => "off"}
+      .rand 
+        .center-text 
+          %a{:href => "https://en.wikipedia.org/wiki/Special:Random",
+             :target => '_blank'} or try your luck.
+      
+  .row.d-none#noResults 
+    %a.col-md{:href => "https://en.wikipedia.org/wiki/Special:Search",
+              :target => '_blank'}
+      .sub No search results found!
+      .desc Click here to use the Wikipedia Native Search.
+  - (0..6).each do |i|
+    .row
+      -(1..3).each do |j|
+        /Add target blank
+        %a.col-md.d-none{:href => "#" ,
+                         :'data-toggle' => "modal",
+                         :'data-target' => "#selectedModal",
+                         :id => "result#{j+(i*3)}"}
+          .sub 
+          .desc
+%a.footer.text-center{:href => "https://www.mediawiki.org/wiki/API:Main_page",
+                      :target => "_blank"} 
+  Powered by
+  .fab.fa-wikipedia-w.fa-lg
+  API
