@@ -1,0 +1,49 @@
+.bg
+.calculator.on
+  .display.text-right hello
+  .history.text-right world
+  .button-area
+    .row
+      .col-3
+        %button.btn.btn-func#off OFF
+      .col-3
+        %button.btn.btn-func#ac AC
+      .col-3
+        %button.btn.btn-func#on ON
+      .col-3
+        %button.btn.btn-oper#div ÷
+    .row
+      .col-3
+        %button.btn.btn-num#7 7
+      .col-3
+        %button.btn.btn-num#8 8
+      .col-3
+        %button.btn.btn-num#9 9 
+      .col-3
+        %button.btn.btn-oper#mult ×
+    .row
+      .col-3
+        %button.btn.btn-num#4 4
+      .col-3
+        %button.btn.btn-num#5 5
+      .col-3
+        %button.btn.btn-num#6 6
+      .col-3
+        %button.btn.btn-oper#sub - 
+    .row
+      .col-3
+        %button.btn.btn-num#1 1
+        %button.btn.btn-num#0 0
+      .col-3
+        %button.btn.btn-num#2 2
+        %button.btn.btn-num#dot ·
+      .col-3
+        %button.btn.btn-num#3 3
+        %button.btn.btn-oper#eq =
+      .col-3
+        %button.btn.btn-oper#add +
+.creds.on.text-center 
+  .title JS Calculator
+  .info 
+    Hand coded by: 
+    %a{:href => 'https://leeandher.github.io/', :target => '_blank'} Leander Rodrigues
