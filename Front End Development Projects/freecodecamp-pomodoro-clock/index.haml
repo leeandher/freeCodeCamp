@@ -1,0 +1,37 @@
+/Page title
+.title 
+  %p PRODUCTIVITY 
+  %p FUEL GAUGE
+/Settings for timer
+.main.setter
+  %form
+    /Input area for setting work time
+    .section#work
+      %p SET WORK TIME
+      .numSet
+        %input#w-h{:max => '23', :min => '0', :type => 'number', :placeholder => '00'}
+        %span :
+        %input#w-m{:max => '59', :min => '0', :type => 'number', :placeholder => '25'}
+        %span :
+        %input#w-s{:max => '59', :min => '0', :type => 'number', :placeholder => '00'}
+    /Input area for setting break time
+    .section#break
+      %p SET BREAK TIME
+      .numSet
+        %input#b-h{:max => '23', :min => '0', :type => 'number', :placeholder => '00'}
+        %span :
+        %input#b-m{:max => '59', :min => '0', :type => 'number', :placeholder => '05'}
+        %span :
+        %input#b-s{:max => '59', :min => '0', :type => 'number', :placeholder => '00'}
+      %input.d-none{:type => 'submit'}  
+/Actual timer widget
+.main.timer.off.d-none
+  /Loop for notches
+  - (0..49).each do |i|
+    .bar
+  .label.center
+  .needle
+  .base.center
+  .time
+/Reset button
+%button.btn.btn-reset.d-none RESET
