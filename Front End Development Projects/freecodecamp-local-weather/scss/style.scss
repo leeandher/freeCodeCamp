@@ -1,0 +1,179 @@
+//Variables
+$main: rgb(245,245,245);
+$dark: rgb(25,25,25);
+
+//Small screen sizing
+@media screen {
+  .temperature {
+    font-size: 75px;
+  }
+  .title,
+  .error,
+  .description {
+    font-size: 34px;
+  }
+  p,
+  btn,
+  .location {
+    font-size: 14px;
+  }
+}
+//Medium Screen sizing
+@media (min-width: 768px) {
+  .temperature {
+    font-size: 90px;
+  }
+  .title,
+  .error {
+    font-size: 30px;
+  }
+  btn,
+  .location {
+    font-size: 18px;
+  }
+}
+
+//Setup
+html,
+body {
+  height: 100%;
+  color: $main;
+  font-family: 'Montserrat', sans-serif;
+}
+
+//Background image and filters
+.bg {
+  height: 100%;
+  width: 100%;
+  background-image: url(https://goo.gl/njnkZ2);
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.3);
+}  
+//Absolute centering
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+//Centers text
+.center-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+//Holds the whole app
+.content {
+  height: 476px;
+  width: 80%;
+  max-width: 796px;
+  min-width: 576px;
+  text-align: center;
+  &.error {
+    font-style: italic;
+  }
+}
+
+//Title of the app
+.title {
+  width: 100%;
+  height: 10%;
+  font-weight: bold;
+  background-color: $dark;
+  border-radius: 25px 25px 0px 0px;
+}
+//Left set of information
+.left-info {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  background-color: rgba(95,95,95,0.3);
+  transition: all 0.5s;
+  .temperature {
+    width: 100%;
+    display: block;
+  }
+  .btn {
+    margin: 20px auto;
+    margin-top: 0px;
+    &:hover {
+      cursor: pointer;
+      color: $dark;
+    }
+  }   
+}
+//Right set of information
+.right-info {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  background-color: rgba(95,95,95,0.3);
+  transition: all 0.5s;
+  .center-text {
+    padding: 20px ;
+    .description {
+      font-style: italic;
+    }
+  }
+}
+//Hovering animation
+.hover-inset {
+  &:hover {
+    box-shadow: inset 0px 0px 25px rgba(0,0,0,0.9);
+  }
+}
+
+//Container below standard information
+.details {
+  width: 100%;
+  height: 40%;
+  .head {
+    font-weight: bold;
+  }
+}
+//Transition settings for different browsers
+.transition {
+  -webkit-transition: all .35s ease-out;
+  -moz-transition: all .35s ease-out;
+  -ms-transition: all .35s ease-out;
+  -o-transition: all .35s ease-out;
+  transition: all .35s ease-out;  
+}
+//The enabler for the extra information
+.expand {
+  background: $dark;
+  display: block;
+  border-radius: 0px 0px 25px 25px;
+  width: 100%;
+  height: 25%;
+  &:hover {
+    cursor: pointer;
+  }
+  .transition {
+    &.enable {
+      -webkit-transform: rotateX(180deg);
+      -moz-transform: rotateX(180deg);
+      -ms-transform: rotateX(180deg);
+      -o-transform: rotateX(180deg);
+      transform: rotateX(180deg);
+    }
+  }
+}
+//The container for the extra information
+.extra {
+  margin-top: -4%;
+  padding-top: 3%;
+  z-index: 1;
+  max-height: 0%;
+  border-radius: 0px 0px 25px 25px;
+  background: $dark;
+  overflow: hidden;  
+  &.override {
+    max-height: 105%;
+  }
+}
+

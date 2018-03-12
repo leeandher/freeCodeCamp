@@ -1,0 +1,28 @@
+html {height: 100%;}
+body {
+  font-family: Helvetica;
+  background-color: aqua;
+}
+.header {
+  margin: 0 auto;
+  font-size: 25px;
+  font-weight: bold;
+  position: relative;
+}
+.content {
+  border: 2px solid magenta;
+  width: 80%;
+  min-height: 300px;
+  background-color: gainsboro;
+  position: relative;
+  margin: 0 auto
+}
+.cell {
+  border: 2px solid green;
+  height: 33%;
+  width: 33%;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  
+}
