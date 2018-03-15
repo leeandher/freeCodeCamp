@@ -52,5 +52,5 @@ Please keep in mind that they do get better overtime as I learn more and try new
   - **Simon Game** - _Mar 15, 2018_<br/>
  A recreation of the famous toy which calls on the user's memory of a sequence of button presses in order to win. A few additonal features have been added, such as strict-mode, spin-mode, no-repeat mode and multiple colour schemes.<br/>
  Concepts: **HTML5 w/ Haml**, **CSS3 w/ Bootstrap & SCSS**, **JS w/ JQuery & Web Audio API**<br/>
- Link: https://leeandher.github.io/projects/fuelgauge/
+ Link: https://leeandher.github.io/projects/simon/
  
