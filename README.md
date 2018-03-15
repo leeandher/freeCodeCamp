@@ -42,11 +42,11 @@ Please keep in mind that they do get better overtime as I learn more and try new
  Concepts: **Pure JS**<br/>
  Link: 
  - **JavaScript Calculator** - _Mar 06, 2018_<br/>
- A calculator app that runs entirely on complex hand-coded JavaScript. It is meant to be a desktop calculator which ignores BEDMAS so performs operations linearly. It scales responsively for mobile and does not implore the 300ms delay, allowing for faster inputs.
+ A calculator app that runs entirely on complex hand-coded JavaScript. It is meant to be a desktop calculator which ignores BEDMAS so performs operations linearly. It scales responsively for mobile and does not implore the 300ms delay, allowing for faster inputs.<br/>
  Concepts: **HTML5 w/ Haml**, **CSS3 w/ Bootstrap & SCSS**, **JS w/ JQuery**<br/>
  Link: https://leeandher.github.io/projects/calculator/
  - **Pomodoro Clock** - _Mar 12, 2018_<br/>
- A timer using the pomodoro productivity technique, of set break and work timers to regiment time spent allocated to tasks. I styled it as a fuel gauge which empties and refills on work periods and break periods respectively.
+ A timer using the pomodoro productivity technique, of set break and work timers to regiment time spent allocated to tasks. I styled it as a fuel gauge which empties and refills on work periods and break periods respectively.<br/>
  Concepts: **HTML5 w/ Haml**, **CSS3 w/ Bootstrap & SCSS**, **JS w/ JQuery**<br/>
  Link: https://leeandher.github.io/projects/fuelgauge/
  
