@@ -46,7 +46,11 @@ Please keep in mind that they do get better overtime as I learn more and try new
  Concepts: **HTML5 w/ Haml**, **CSS3 w/ Bootstrap & SCSS**, **JS w/ JQuery**<br/>
  Link: https://leeandher.github.io/projects/calculator/
  - **Pomodoro Clock** - _Mar 12, 2018_<br/>
- A timer using the pomodoro productivity technique, of set break and work timers to regiment time spent allocated to tasks. I styled it as a fuel gauge which empties and refills on work periods and break periods respectively.<br/>
+ A timer using the pomodoro productivity technique, of set break and work timers to regiment time spent allocated to tasks.It is styled as a fuel gauge which empties and refills on work periods and break periods respectively.<br/>
  Concepts: **HTML5 w/ Haml**, **CSS3 w/ Bootstrap & SCSS**, **JS w/ JQuery**<br/>
+ Link: https://leeandher.github.io/projects/fuelgauge/
+  - **Simon Game** - _Mar 15, 2018_<br/>
+ A recreation of the famous toy which calls on the user's memory of a sequence of button presses in order to win. A few additonal features have been added, such as strict-mode, spin-mode, no-repeat mode and multiple colour schemes.<br/>
+ Concepts: **HTML5 w/ Haml**, **CSS3 w/ Bootstrap & SCSS**, **JS w/ JQuery & Web Audio API**<br/>
  Link: https://leeandher.github.io/projects/fuelgauge/
  
