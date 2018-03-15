@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Varela+Round|Share+Tech+Mono");
+@import url("https://fonts.googleapis.com/css?family=Varela+Round|Iceland");
 @media only screen {
   body {
     font-size: 60px;
@@ -137,7 +137,7 @@ body {
   border: 2px solid #070707;
   border-radius: 15px;
   line-height: 1;
-  font-family: "Share Tech Mono";
+  font-family: "Iceland";
   font-size: 100%;
   margin: 0 auto;
   margin-bottom: 5%;

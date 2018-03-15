@@ -64,10 +64,6 @@ var colourScheme = [
   ['#E50914', '#221F1F', '#F5F5F1', '#E50914'], //Netflix
   ['#F0F0F0', '#F68C06', '#325DA7', '#F0F0F0'], //Portal
   ['#6ECADC', '#E9A820', '#E01563', '#3EB991'], //Slack
-  //Jordine
-  ['#EAC435', '#345995', '#E40066', '#03CEA4'], //Barbie beach house
-  ['#3D5A6C', '#8DE969', '#CBEF43', '#72A98F'], //Pretty sick
-  ['#8ACB88', '#648381', '#575761', '#FFBF46'], //Calm
 ]; //All colour schemes
 var schemeInd = 0; //Current colour scheme index
 
