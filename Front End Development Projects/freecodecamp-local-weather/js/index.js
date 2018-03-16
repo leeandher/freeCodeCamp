@@ -3,11 +3,12 @@ var unit = "C";
 var currentTemp;
 
 //Toggles extra information
-$(".expand").click(function() {
-  $(".fa-angle-down").toggleClass('enable');
-  $(".extra").toggleClass('override');
+$(".fa-angle-down").click(function() {
+  $(this).toggleClass('enable');
+  $(".details").toggleClass('override');
 });
 
+//Convert between C and F
 $("button").click(function() {
   unit = 
     unit == "C" ? "F" : "C";
@@ -16,6 +17,7 @@ $("button").click(function() {
   $(".temperature").text(Math.round(currentTemp*10)/10 + String.fromCharCode(176) + unit);
 });
 
+//Obtain geolocation data
 function findData() {
   navigator.geolocation.getCurrentPosition(function(position) {
     var userLat = position.coords.latitude;
@@ -27,10 +29,18 @@ function findData() {
         setData(data);
       }
     ); //End .getJSON
+  }, function(error) {
+    //Error function
+    errText = 
+      error.code == error.PERMISSION_DENIED ?
+      'Please enable location services!':
+      'Something went wrong :/';
+    $('.error').text(errText);
   }); //End navigator.geolocation.getCurrentPosition
 }
-
+//Assign the data to the app interface
 function setData(data) {
+  console.log(data);
   $(".location").text(data.name + ", " + data.sys.country);
   $(".temperature").text(currentTemp + String.fromCharCode(176) + unit);
   $(".category").text(data.weather[0].main);
@@ -51,37 +61,35 @@ function setData(data) {
   $(".hum").text(data.main.humidity + '%');
   $(".pres").text(data.main.pressure + ' hPa');
 }
-
+//Set the appropriate background per description
 function setBackground(type) {
   switch (type) {
     case 'Mist':
     case 'Drizzle':
-      $('.bg').css('background-image','url(https://goo.gl/E85ygx)');
+      $('body').css('background-image','url(https://goo.gl/E85ygx)');
       break;
     case 'Clouds':
-      $('.bg').css('background-image','url(https://goo.gl/mcaYzE)');
+      $('body').css('background-image','url(https://goo.gl/mcaYzE)');
       break;
     case 'Rain':
-      $('.bg').css('background-image','url(https://goo.gl/nB3ybF)');
+      $('body').css('background-image','url(https://goo.gl/nB3ybF)');
       break;
     case 'Snow':
-      $('.bg').css('background-image','url(https://goo.gl/vmFG2g)');
+      $('body').css('background-image','url(https://goo.gl/vmFG2g)');
       break;
     case 'Clear':
-      $('.bg').css('background-image','url(https://goo.gl/mG8rQk)');
+      $('body').css('background-image','url(https://goo.gl/mG8rQk)');
       break;
     case 'Thunderstorm':
-      $('.bg').css('background-image','url(https://goo.gl/82Wn4F)');
+      $('body').css('background-image','url(https://goo.gl/82Wn4F)');
       break;
   }
 }
 
-$(document).ready(function() {
-  if (navigator.geolocation) {
-    findData();
-  }
-});
+//On load, find data
+$(document).ready(findData);
 
+//Once data has been received
 $(document).ajaxComplete(function() {
   $('.content').removeClass('d-none');
   $('.error').addClass('d-none');

@@ -1,28 +1,12 @@
 @media screen {
-  .temperature {
-    font-size: 75px;
-  }
-
-  .title,
   .error,
-  .description {
-    font-size: 34px;
-  }
-
-  p,
-  btn,
-  .location {
-    font-size: 14px;
-  }
-}
-@media (min-width: 768px) {
   .temperature {
     font-size: 90px;
   }
 
   .title,
-  .error {
-    font-size: 30px;
+  .description {
+    font-size: 34px;
   }
 
   btn,
@@ -30,22 +14,55 @@
     font-size: 18px;
   }
 }
-html,
+@media (max-width: 750px) {
+  .error,
+  .temperature {
+    font-size: 75px;
+  }
+
+  .title,
+  .description {
+    font-size: 30px;
+  }
+
+  p,
+  btn,
+  .location {
+    font-size: 14px;
+  }
+
+  .info {
+    font-size: 12px;
+  }
+}
+@media (max-width: 475px) {
+  .error,
+  .temperature {
+    font-size: 60px;
+  }
+
+  .title {
+    font-size: 26px;
+    padding-top: 5px;
+  }
+
+  p,
+  btn,
+  .location {
+    font-size: 12px;
+  }
+
+  .info {
+    font-size: 10px;
+  }
+}
 body {
   height: 100%;
   color: whitesmoke;
   font-family: 'Montserrat', sans-serif;
-}
-
-.bg {
-  height: 100%;
-  width: 100%;
-  background-image: url(https://goo.gl/njnkZ2);
-  background-attachment: fixed;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
+  min-width: 350px;
+  background: #191919 url("") no-repeat center center fixed;
   background-size: cover;
-  filter: brightness(0.3);
 }
 
 .center {
@@ -66,7 +83,8 @@ body {
   height: 476px;
   width: 80%;
   max-width: 796px;
-  min-width: 576px;
+  min-width: 320px;
+  margin: 50px auto;
   text-align: center;
 }
 .content.error {
@@ -81,13 +99,25 @@ body {
   border-radius: 25px 25px 0px 0px;
 }
 
-.left-info {
+.col-3, .col-md-6 {
+  padding: 0;
+}
+
+.row {
+  margin: 0 auto;
+}
+
+.hover-inset {
   width: 100%;
   height: 100%;
   margin: 0px;
-  background-color: rgba(95, 95, 95, 0.3);
+  background-color: rgba(25, 25, 25, 0.7);
   transition: all 0.5s;
 }
+.hover-inset:hover {
+  box-shadow: inset 0px 0px 25px rgba(0, 0, 0, 0.9);
+}
+
 .left-info .temperature {
   width: 100%;
   display: block;
@@ -101,30 +131,11 @@ body {
   color: #191919;
 }
 
-.right-info {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  background-color: rgba(95, 95, 95, 0.3);
-  transition: all 0.5s;
-}
 .right-info .center-text {
   padding: 20px;
 }
 .right-info .center-text .description {
   font-style: italic;
-}
-
-.hover-inset:hover {
-  box-shadow: inset 0px 0px 25px rgba(0, 0, 0, 0.9);
-}
-
-.details {
-  width: 100%;
-  height: 40%;
-}
-.details .head {
-  font-weight: bold;
 }
 
 .transition {
@@ -135,33 +146,33 @@ body {
   transition: all .35s ease-out;
 }
 
-.expand {
-  background: #191919;
-  display: block;
+.details {
+  padding: 0 10px;
+  z-index: 1;
+  max-height: 10%;
   border-radius: 0px 0px 25px 25px;
-  width: 100%;
-  height: 25%;
+  background: #191919;
+  overflow: hidden;
 }
-.expand:hover {
-  cursor: pointer;
+.details p {
+  margin: 5px auto;
 }
-.expand .transition.enable {
+.details .head {
+  font-weight: bold;
+}
+.details .row {
+  padding: 5px 0;
+}
+.details .transition.enable {
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
   -o-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
-
-.extra {
-  margin-top: -4%;
-  padding-top: 3%;
-  z-index: 1;
-  max-height: 0%;
-  border-radius: 0px 0px 25px 25px;
-  background: #191919;
-  overflow: hidden;
+.details .transition:hover {
+  cursor: pointer;
 }
-.extra.override {
-  max-height: 105%;
+.details.override {
+  max-height: 40%;
 }

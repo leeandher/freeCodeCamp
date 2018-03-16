@@ -2,56 +2,70 @@
 $main: rgb(245,245,245);
 $dark: rgb(25,25,25);
 
-//Small screen sizing
+//Large Screen sizing
 @media screen {
-  .temperature {
-    font-size: 75px;
-  }
-  .title,
   .error,
-  .description {
-    font-size: 34px;
-  }
-  p,
-  btn,
-  .location {
-    font-size: 14px;
-  }
-}
-//Medium Screen sizing
-@media (min-width: 768px) {
   .temperature {
     font-size: 90px;
   }
   .title,
-  .error {
-    font-size: 30px;
+  .description  {
+    font-size: 34px;
   }
   btn,
   .location {
     font-size: 18px;
   }
 }
+//Medium screen sizing
+@media (max-width: 750px)  {
+  .error,
+  .temperature {
+    font-size: 75px;
+  }
+  .title,
+  .description {
+    font-size: 30px;
+  }
+  p,
+  btn,
+  .location {
+    font-size: 14px;
+  }
+  .info {
+    font-size: 12px;
+  }
+}
+//Small screen sizing
+@media (max-width: 475px) {
+  .error,
+  .temperature {
+    font-size: 60px;
+  }
+  .title {
+    font-size: 26px;
+    padding-top: 5px;
+  }
+  p,
+  btn,
+  .location {
+    font-size: 12px;
+  }
+  .info {
+    font-size: 10px;
+  }
+}
 
-//Setup
-html,
+//Setup and background image and filters
 body {
   height: 100%;
   color: $main;
   font-family: 'Montserrat', sans-serif;
+  min-width: 350px;
+  background: $dark url('') no-repeat center center fixed;
+  background-size: cover;
 }
 
-//Background image and filters
-.bg {
-  height: 100%;
-  width: 100%;
-  background-image: url(https://goo.gl/njnkZ2);
-  background-attachment: fixed;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: brightness(0.3);
-}  
 //Absolute centering
 .center {
   position: absolute;
@@ -71,7 +85,8 @@ body {
   height: 476px;
   width: 80%;
   max-width: 796px;
-  min-width: 576px;
+  min-width: 320px;
+  margin: 50px auto;
   text-align: center;
   &.error {
     font-style: italic;
@@ -86,13 +101,24 @@ body {
   background-color: $dark;
   border-radius: 25px 25px 0px 0px;
 }
-//Left set of information
-.left-info {
+
+//Bootstrap formatting
+.col-3, .col-md-6 {padding: 0;}
+.row {margin: 0 auto;}
+
+//Hovering animation
+.hover-inset {
   width: 100%;
   height: 100%;
   margin: 0px;
-  background-color: rgba(95,95,95,0.3);
+  background-color: rgba(25,25,25,0.7);
   transition: all 0.5s;
+  &:hover {
+    box-shadow: inset 0px 0px 25px rgba(0,0,0,0.9);
+  }
+}
+//Left set of information
+.left-info {
   .temperature {
     width: 100%;
     display: block;
@@ -108,51 +134,33 @@ body {
 }
 //Right set of information
 .right-info {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  background-color: rgba(95,95,95,0.3);
-  transition: all 0.5s;
   .center-text {
-    padding: 20px ;
+    padding: 20px;
     .description {
       font-style: italic;
     }
   }
 }
-//Hovering animation
-.hover-inset {
-  &:hover {
-    box-shadow: inset 0px 0px 25px rgba(0,0,0,0.9);
-  }
-}
 
-//Container below standard information
-.details {
-  width: 100%;
-  height: 40%;
-  .head {
-    font-weight: bold;
-  }
-}
 //Transition settings for different browsers
 .transition {
   -webkit-transition: all .35s ease-out;
   -moz-transition: all .35s ease-out;
   -ms-transition: all .35s ease-out;
   -o-transition: all .35s ease-out;
-  transition: all .35s ease-out;  
+  transition: all .35s ease-out; 
 }
-//The enabler for the extra information
-.expand {
-  background: $dark;
-  display: block;
+//The container for the extra information
+.details {
+  padding: 0 10px;
+  z-index: 1;
+  max-height: 10%;
   border-radius: 0px 0px 25px 25px;
-  width: 100%;
-  height: 25%;
-  &:hover {
-    cursor: pointer;
-  }
+  background: $dark;
+  overflow: hidden; 
+  p {margin: 5px auto;}
+  .head {font-weight: bold;}
+  .row {padding: 5px 0;}
   .transition {
     &.enable {
       -webkit-transform: rotateX(180deg);
@@ -161,19 +169,7 @@ body {
       -o-transform: rotateX(180deg);
       transform: rotateX(180deg);
     }
+    &:hover {cursor: pointer;}
   }
+  &.override {max-height: 40%;}
 }
-//The container for the extra information
-.extra {
-  margin-top: -4%;
-  padding-top: 3%;
-  z-index: 1;
-  max-height: 0%;
-  border-radius: 0px 0px 25px 25px;
-  background: $dark;
-  overflow: hidden;  
-  &.override {
-    max-height: 105%;
-  }
-}
-

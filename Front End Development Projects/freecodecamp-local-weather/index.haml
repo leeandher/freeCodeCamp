@@ -1,46 +1,41 @@
--# Background with applied filters
-.bg
 -# Loading screen before AJAX Comlpetion
-.content.center.error loading...
+.center.error.text-center loading...
 -# Actual weather app
-.content.center.postion-sticky.d-none
+.content.d-none
   .title Outside from the Inside
   .row
-    .col-6
+    .col-md-6
       -# Left info set
       .left-info.hover-inset
         .blur
         .temperature  
         %button.btn.btn-outline-light Convert Units
-    .col-6
+    .col-md-6
       -# Right info set
       .right-info.hover-inset
         .center-text
           .description
           .location
-  .details
-    -# The down arrow bar to enable extra stats
-    .expand
-      .fas.fa-3x.fa-angle-down.transition
-    -# The additional component with the stats
-    .extra.transition
-      .row
-        .col-3.offset-3
-          %p.head Latitude
-          %p.info.lat
-        .col-3
-          %p.head Longitude
-          %p.info.lon 
-      .row
-        .col-3
-          %p.head Wind Speed
-          %p.info.ws 
-        .col-3
-          %p.head Wind Direction
-          %p.info.wd 
-        .col-3
-          %p.head Humidity
-          %p.info.hum 
-        .col-3
-          %p.head Pressure
-          %p.info.pres 
+  -# The additional component with the stats
+  .details.transition
+    .fas.fa-3x.fa-angle-down.transition
+    .row
+      .col-3.offset-3
+        %p.head Latitude
+        %p.info.lat
+      .col-3
+        %p.head Longitude
+        %p.info.lon 
+    .row
+      .col-3
+        %p.head Wind Speed
+        %p.info.ws 
+      .col-3
+        %p.head Wind Direction
+        %p.info.wd 
+      .col-3
+        %p.head Humidity
+        %p.info.hum 
+      .col-3
+        %p.head Pressure
+        %p.info.pres 
