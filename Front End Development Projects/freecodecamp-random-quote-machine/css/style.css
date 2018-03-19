@@ -4,13 +4,12 @@
   font-weight: 100;
   font-style: normal;
 }
-html {
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(#DB6D37, #EF2F7A);
-}
 
 body {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#DB6D37, #EF2F7A) no-repeat center center fixed;
+  background-size: cover;
   margin: 0px;
 }
 
