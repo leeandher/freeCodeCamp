@@ -48,7 +48,7 @@ Please keep in mind that they do get better overtime as I learn more and try new
  - **Basic Algorithm Scripting** - _Jan 31, 2018_<br/>
  A set of basic algorithms for manipulating strings, numbers and arrays, similar to basic technical interview prep.<br/>
  Concepts: **Pure JS**<br/>
- Link: 
+ Link: <https://leeandher.github.io/freeCodeCamp/Front End Development Projects/basic-algorithms.js>
  - **Personal Portfolio** - _Jan 28, 2018_<br/>
  A portfolio page split up into sections with page navigation, filled with self-depricating jokes and a cool colour scheme. <br/>
  Concepts: **HTML5**, **CSS3 w/ Bootstrap**, **Basic JS w/ Basic JQuery**<br/>
